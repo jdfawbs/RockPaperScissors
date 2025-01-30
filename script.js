@@ -3,7 +3,11 @@ console.log("Welcome to Rock - Paper - Scissors");
 
 //Declare the global variables
     //Create 2 variables called humanScore and computerScore to store and keep track of the game score.
+let humanScore = 0;
+let computScore = 0;
     //Create getHumanChoice and getComputerChoice variables
+let HumanChoice = "None";
+let ComputerChoice = "None";
 
 //Create a function called getComputerChoice that returns a random choice from Rock, Paper or Scissors.
     //Create a variable computerChoice that gets assigned a randon number between 1 and 3
@@ -46,3 +50,4 @@ console.log("Welcome to Rock - Paper - Scissors");
         //Else, display "Unbelievable, it's a draw!"
 
 //Display "Thank you for playing :-)"
+console.log("Thank you for playing :-)");
