@@ -6,8 +6,8 @@ console.log("Welcome to Rock - Paper - Scissors");
 let humanScore = 0;
 let computScore = 0;
     //Create getHumanChoice and getComputerChoice variables
-let HumanChoice = "None";
-let ComputerChoice = "None";
+let humanChoice = "None";
+let computerChoice = "None";
 
 //Create a function called getComputerChoice that returns a random choice from Rock, Paper or Scissors.
 function getComputerChoice() {
@@ -31,15 +31,19 @@ function getHumanChoice() {
     humanChoice = prompt("Lets play Rock, Paper, Scissors, type in your choice","None");
     //Convert humanChoice to lowercase
     humanChoice = (humanChoice.toLowerCase());
-    //If humanChoice equals rock, paper or scissors the display "Your choice is ...." and return the value
-    if humanChoice == "rock" || "paper" ||"scissors" {
-        console.log("Your choice is " + humanChoice  + ".");
-    //Else display "Your choice is not valid, please choose again" and prompt the player to choose again      
-    } else {
+    //If humanChoice is invalid display "Your choice is not valid please choose again"
+    if (humanChoice !== ("rock"  || "paper" ||  "scissors")) {
         console.log("Your choice is not a valid choice, please choose again");
         getHumanChoice();
+    //Else display "Your choice is ...." and return the value"     
+    } else {
+        console.log("Your choice is " + humanChoice  + ".");
     }
 }
+
+getComputerChoice();
+getHumanChoice();
+console.log("The computers choice is " + computerChoice + ".");
 
 //Create a function called playRound with 2 parameters (humanChoice, computerChoice)
     //Display the coumpters choice in the console
@@ -69,8 +73,7 @@ function getHumanChoice() {
         //Else If humanScore is greater than computerScore, then display "Congratulations, you win!"
         //Else, display "Unbelievable, it's a draw!"
 
-getComputerChoice()
-console.log(computerChoice)
+
 
 //Display "Thank you for playing :-)"
 console.log("Thank you for playing :-)");
