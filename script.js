@@ -10,16 +10,36 @@ let HumanChoice = "None";
 let ComputerChoice = "None";
 
 //Create a function called getComputerChoice that returns a random choice from Rock, Paper or Scissors.
+function getComputerChoice() {
     //Create a variable computerChoice that gets assigned a randon number between 1 and 3
-    //If computerChoice equals 1 return "rock"
-    //If computerChoice equals 2 return "paper"
-    //If computerChoice equals 3 return "scissors"
-
+    computerChoice = Math.floor(Math.random() * 3);
+        //If computerChoice equals 1 return "rock"  
+        if (computerChoice == 0) {
+            computerChoice = "rock";
+         //If computerChoice equals 2 return "paper"
+        } else if (computerChoice == 1) {
+            computerChoice = "paper";
+         //If computerChoice equals 3 return "scissors"
+        } else {
+            computerChoice ="scissors";
+        }
+}
+  
 //Create a function called getHumanChoice that prompts a user to enter a valid choice from Rock, Paper or Scissors.
+function getHumanChoice() {
     //Create a prompt to ask the player to choose Rock, Paper or Scissors and assign their choice to the variable humanChoice
+    humanChoice = prompt("Lets play Rock, Paper, Scissors, type in your choice","None");
     //Convert humanChoice to lowercase
+    humanChoice = (humanChoice.toLowerCase());
     //If humanChoice equals rock, paper or scissors the display "Your choice is ...." and return the value
-    //Else display "Your choice is not valid, please choose again" and prompt the player to choose again
+    if humanChoice == "rock" || "paper" ||"scissors" {
+        console.log("Your choice is " + humanChoice  + ".");
+    //Else display "Your choice is not valid, please choose again" and prompt the player to choose again      
+    } else {
+        console.log("Your choice is not a valid choice, please choose again");
+        getHumanChoice();
+    }
+}
 
 //Create a function called playRound with 2 parameters (humanChoice, computerChoice)
     //Display the coumpters choice in the console
@@ -48,6 +68,9 @@ let ComputerChoice = "None";
         //If computerScore is greater than humanScore, then display "Bad luck Computer wins!"
         //Else If humanScore is greater than computerScore, then display "Congratulations, you win!"
         //Else, display "Unbelievable, it's a draw!"
+
+getComputerChoice()
+console.log(computerChoice)
 
 //Display "Thank you for playing :-)"
 console.log("Thank you for playing :-)");
