@@ -1,4 +1,3 @@
-console.log("Hello World");
 console.log("Welcome to Rock - Paper - Scissors");
 console.log("Best of 5 rounds or first to 3 wins!");
 
@@ -52,15 +51,12 @@ function playRound(computerChoice, humanChoice) {
         if (humanChoice === "rock") {
             //If computerChoice  = rock, return draw
             if (computerChoice === "rock") {
-                //console.log("This round is a DRAW");
                 roundResult = "draw";
             //Else If computerChoice = paper, return computer
             } else if (computerChoice === "paper") {
-                //console.log("The computer WINS this round");
                 roundResult = "computer";
             //Else, return = human
             } else {
-               // console.log("You WIN this round!");
                 roundResult = "human";
             }
         }  
@@ -68,15 +64,12 @@ function playRound(computerChoice, humanChoice) {
         if (humanChoice === "paper") {
             //If computerChoice  = rock, return human
             if (computerChoice === "rock") {
-                //console.log("You WIN this round!");
                 roundResult = "human";
             //Else If computerChoice = paper, return draw
             } else if (computerChoice === "paper") {
-               // console.log("This round is a DRAW");
                 roundResult = "draw";
             //Else, return = computer
             } else {
-                //console.log("The computer WINS this round");
                 roundResult = "computer";
             }
         }
@@ -84,38 +77,39 @@ function playRound(computerChoice, humanChoice) {
         if (humanChoice === "scissors") {
             //If computerChoice  = rock, return computer
             if (computerChoice === "rock") {
-                //console.log("The computer WINS this round");
                 roundResult = "computer";
             //Else If computerChoice = paper, return human
             } else if (computerChoice === "paper") {
-                //console.log("You WIN this round!");
                 roundResult = "human";
             //Else, return = draw
             } else {
-                //console.log("This round is a DRAW");
                 roundResult = "draw";
             }
-        }     
+        }
+return roundResult;  
 }
 
 //Create a function call playGame that calls playGame
 function playGame(roundResult) {
     //Play 5 rounds, create variable roundNumber = 0, play while rounds is less than 5 or (humanScore or computerScore) is less than 3
-    let roundNumber = 0;
-    while ((roundNumber < 5) || (computerScore < 3) || (humanScore < 3)) {
+    let roundNumber = 1;
+
+    while ((roundNumber < 5) || (computerScore != 3) || (humanScore != 3)) {
+
+        console.log("Round " + roundNumber);
 
         getComputerChoice();
         getHumanChoice();
         
-        playRound(computerChoice, humanChoice);
+        roundResult = playRound(computerChoice, humanChoice);
 
         //Declare the winner of each round
              //If winner equals human, increment humanScore by 1 and display message "Well done you won that round!"    
-        if (roundResult === "human") {
+        if (roundResult == "human") {
             console.log("You WIN this round!");
             humanScore = humanScore + 1;
             //Else If winner equals computer increment computerScore by 1 and display message "Unlucky you lost that round"
-        } else if (roundResult === "computer") {
+        } else if (roundResult == "computer") {
             console.log("The computer WINS this round");
             computerScore = computerScore + 1;
             //Else display "It's a draw, play again"
@@ -123,9 +117,10 @@ function playGame(roundResult) {
             console.log("This round is a DRAW");
         }
         //Display the current score, humannScore : computerScore
-        console.log("The game score is: You: " + humanScore + "-- Computer: " + computerScore);
-        roundNumber = roundNumber +1;
-        }      
+        console.log("The game score is: You: " + humanScore + " -- Computer: " + computerScore);
+        roundNumber = roundNumber +1;  
+    }      
+
     //Declare the winner of the game after 5 rounds or first to 3 rounds
         //If computerScore is greater than humanScore, then display "Bad luck Computer wins!"
     if (computerScore > humanScore) {
