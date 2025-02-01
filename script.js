@@ -5,9 +5,10 @@ console.log("Welcome to Rock - Paper - Scissors");
     //Create 2 variables called humanScore and computerScore to store and keep track of the game score.
 let humanScore = 0;
 let computerScore = 0;
-    //Create getHumanChoice and getComputerChoice variables
+    //Create getHumanChoice, getComputerChoice, roundResult variables
 let humanChoice = "None";
 let computerChoice = "None";
+let roundResult = "None";
 
 //Create a function called getComputerChoice that returns a random choice from Rock, Paper or Scissors.
 function getComputerChoice() {
@@ -28,12 +29,12 @@ function getComputerChoice() {
 //Create a function called getHumanChoice that prompts a user to enter a valid choice from Rock, Paper or Scissors.
 function getHumanChoice() {
     //Create a prompt to ask the player to choose Rock, Paper or Scissors and assign their choice to the variable humanChoice
-    humanChoice = prompt("Lets play Rock, Paper, Scissors, type in your choice","None");
+    humanChoice = prompt("Lets play Rock, Paper, Scissors, type in your choice","?");
     //Convert humanChoice to lowercase
     humanChoice = (humanChoice.toLowerCase());
     //If humanChoice is valid display "Your choice is ...." and return the value"    
     if ((humanChoice === ("rock")) || (humanChoice === ("paper")) || (humanChoice === ("scissors")))  {
-        console.log("Your choice is " + humanChoice  + ".");
+        console.log("Your choice is " + humanChoice);
     //Else display "Your choice is not valid please choose again"
     } else {
         console.log("Your choice is not a valid choice, please choose again");
@@ -41,30 +42,66 @@ function getHumanChoice() {
     }
 }
 
-playRound(getComputerChoice(), getHumanChoice());
+getComputerChoice();
+getHumanChoice();
 
+playRound(computerChoice, humanChoice);
 
 //Create a function called playRound with 2 parameters (humanChoice, computerChoice)
-function playRound(humanChoice, computerChoice) {
-    console.log("The computers choice is " + computerChoice + ".");
-
-    //Display the coumpters choice in the console
-    console.log(computerChoice);
+function playRound(computerChoice, humanChoice) {
+     //Display the coumpters choice in the console
+    console.log("The computers choice is " + computerChoice);
+    console.log("Test " + humanChoice);
     //Game logic
         //If humanChoice = rock
+        if (humanChoice === "rock") {
             //If computerChoice  = rock, return draw
+            if (computerChoice === "rock") {
+                console.log("It's a DRAW");
+                roundResult = "draw";
             //Else If computerChoice = paper, return computer
+            } else if (computerChoice === "paper") {
+                console.log("Computer WINS");
+                roundResult = "computer";
             //Else, return = human
+            } else {
+                console.log("You WIN!");
+                roundResult = "human";
+            }
+        }  
         //Else If humanChoice =paper
+        if (humanChoice === "paper") {
             //If computerChoice  = rock, return human
+            if (computerChoice === "rock") {
+                console.log("You WIN!");
+                roundResult = "human";
             //Else If computerChoice = paper, return draw
+            } else if (computerChoice === "paper") {
+                console.log("It's a DRAW");
+                roundResult = "draw";
             //Else, return = computer
+            } else {
+                console.log("Computer WINS");
+                roundResult = "computer";
+            }
+        }
         //Else If humanChoice = scissors
+        if (humanChoice === "scissors") {
             //If computerChoice  = rock, return computer
+            if (computerChoice === "rock") {
+                console.log("Computer WINS");
+                roundResult = "computer";
             //Else If computerChoice = paper, return human
+            } else if (computerChoice === "paper") {
+                console.log("You WIN!");
+                roundResult = "human";
             //Else, return = draw
+            } else {
+                console.log("It's a DRAW");
+                roundResult = "draw";
+            }
+        }     
 }
-
 
 //Create a function call playGame that calls playGame
     //Play 5 rounds, create variable rounds = 0, play while rounds is less than 5 or (humanScore or computerScore) is less than 3
