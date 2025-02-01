@@ -94,13 +94,14 @@ function playGame(roundResult) {
     //Play 5 rounds, create variable roundNumber = 0, play while rounds is less than 5 or (humanScore or computerScore) is less than 3
     let roundNumber = 1;
 
-    while ((roundNumber < 5) || (computerScore != 3) || (humanScore != 3)) {
-
+    while ((roundNumber < 6) && (computerScore != 3) && (humanScore != 3)) {
+        //Display the round numnber
         console.log("Round " + roundNumber);
 
+        //call the getComputerChoice and getHumanChoice functions
         getComputerChoice();
         getHumanChoice();
-        
+        //call the playRound function
         roundResult = playRound(computerChoice, humanChoice);
 
         //Declare the winner of each round
@@ -120,7 +121,6 @@ function playGame(roundResult) {
         console.log("The game score is: You: " + humanScore + " -- Computer: " + computerScore);
         roundNumber = roundNumber +1;  
     }      
-
     //Declare the winner of the game after 5 rounds or first to 3 rounds
         //If computerScore is greater than humanScore, then display "Bad luck Computer wins!"
     if (computerScore > humanScore) {
@@ -134,6 +134,7 @@ function playGame(roundResult) {
     }
 }
 
+//Call the playGame function to start the game
 playGame();
 
 //Display "Thank you for playing :-)"
