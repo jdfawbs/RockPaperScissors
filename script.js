@@ -51,21 +51,20 @@ playRound(computerChoice, humanChoice);
 function playRound(computerChoice, humanChoice) {
      //Display the coumpters choice in the console
     console.log("The computers choice is " + computerChoice);
-    console.log("Test " + humanChoice);
     //Game logic
         //If humanChoice = rock
         if (humanChoice === "rock") {
             //If computerChoice  = rock, return draw
             if (computerChoice === "rock") {
-                console.log("It's a DRAW");
+                console.log("This round is a DRAW");
                 roundResult = "draw";
             //Else If computerChoice = paper, return computer
             } else if (computerChoice === "paper") {
-                console.log("Computer WINS");
+                console.log("The computer WINS this round");
                 roundResult = "computer";
             //Else, return = human
             } else {
-                console.log("You WIN!");
+                console.log("You WIN this round!");
                 roundResult = "human";
             }
         }  
@@ -73,15 +72,15 @@ function playRound(computerChoice, humanChoice) {
         if (humanChoice === "paper") {
             //If computerChoice  = rock, return human
             if (computerChoice === "rock") {
-                console.log("You WIN!");
+                console.log("You WIN this round!");
                 roundResult = "human";
             //Else If computerChoice = paper, return draw
             } else if (computerChoice === "paper") {
-                console.log("It's a DRAW");
+                console.log("This round is a DRAW");
                 roundResult = "draw";
             //Else, return = computer
             } else {
-                console.log("Computer WINS");
+                console.log("The computer WINS this round");
                 roundResult = "computer";
             }
         }
@@ -89,15 +88,15 @@ function playRound(computerChoice, humanChoice) {
         if (humanChoice === "scissors") {
             //If computerChoice  = rock, return computer
             if (computerChoice === "rock") {
-                console.log("Computer WINS");
+                console.log("The computer WINS this round");
                 roundResult = "computer";
             //Else If computerChoice = paper, return human
             } else if (computerChoice === "paper") {
-                console.log("You WIN!");
+                console.log("You WIN this round!");
                 roundResult = "human";
             //Else, return = draw
             } else {
-                console.log("It's a DRAW");
+                console.log("This round is a DRAW");
                 roundResult = "draw";
             }
         }     
